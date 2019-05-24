@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Home;
 
-class HomeController extends Controller
+class PublicController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $homes = Home::all();
+        return view('index')->with('homes', $homes);
     }
 }

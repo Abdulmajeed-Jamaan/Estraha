@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class OwnerController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('isOwner');
+
+    }
+
     /**
      * Display a listing of the resource.
      *

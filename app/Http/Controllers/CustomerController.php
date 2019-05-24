@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('isCustomer');
+
+    }
+
     /**
      * Display a listing of the resource.
      *
