@@ -1,77 +1,117 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+    <!-- --------------------------------------------------------------- -->
+    <!-- -------------------------- Register --------------------------- -->
+    <!-- --------------------------------------------------------------- -->
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <form class="login_form" action="{{ route('register') }}" method="POST" onsubmit="return checkRole()">
+            @csrf
+            <h1>حساب جديد</h1>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            @error('name')
+                <span class="erorr">{{ $message }}</span>
+            @enderror
+            <input type="text" placeholder="اسم المستخدم" name="name" value="{{ old('name') }}" required  >
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            @error('email')
+                <span class="erorr">{{ $message }}</span>
+            @enderror
+            <input type="email" placeholder="الايميل" name="email" value="{{ old('email') }}" required  >
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+            @error('phone')
+                <span class="erorr">{{ $message }}</span>
+            @enderror
+            <input type="number" min="0" step="1" placeholder="رقم الهاتف مثال : 0555145214" name="phone" value="{{ old('phone') }}" required  >
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
+            @error('password')
+                <span class="erorr">{{ $message }}</span>
+            @enderror
+            <input type="password" placeholder="كلمة المرور" name="password" required autocomplete="current-password">
+            <input type="password" placeholder="تأكيد كلمة المرور" name="password_confirmation" required autocomplete="current-password">
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <span  id="role_erorr" class="erorr"></span>
+            <div class="roles">
+                <label id="label_role_1" for="role_1" onclick="toggleRadio()"> باحث عن استراحة
+                    <input id="role_1" type="radio" name="role" value="1"  required>
+                </label>
+                <label id="label_role_2" for="role_2" onclick="toggleRadio()">صاحب استراحة
+                        <input id="role_2" type="radio" name="role" value="2" >
+                    </label>
             </div>
-        </div>
-    </div>
-</div>
+
+
+
+            <input type="submit" value="تسجيل حساب جديد">
+
+            <a href="{{ route('login') }}" style="text-align: center;">لديك حساب ؟ سجل دخولك</a>
+
+
+
+        </form>
+
+
+
+        <script>
+
+            function toggleRadio() {
+                var radios = document.getElementsByName("role");
+                for (i = 0; i < radios.length; i++) {
+                        if (i == 1) {
+                            if(radios[i].checked){
+                                radios[i].parentElement.classList.add("checked_left");
+                            }else{
+                                radios[i].parentElement.classList.remove("checked_left");
+                            }
+                        }else if (i == 0){
+
+                            if(radios[i].checked){
+                                radios[i].parentElement.classList.add("checked_right");
+                            }else{
+                                radios[i].parentElement.classList.remove("checked_right");
+                            }
+
+                        }
+
+
+                    }
+                    document.getElementById("role_erorr").innerHTML = "";
+
+
+            }
+
+            function checkRole() {
+
+                    //Validate the Gender field
+                    var radioBoxes = document.getElementsByName("role");
+                    var genderSelected = false;
+                    for ( var i = 0; i < radioBoxes.length; i++)
+                    {
+                         if(radioBoxes[i].checked == true)
+                         {
+                            genderSelected = true;
+                            break;
+                         }
+                    }
+
+                            if (genderSelected == false){
+                                document.getElementById("role_erorr").innerHTML = "الرجاء الاختيار";
+
+                            }
+
+                            return genderSelected;
+
+            }
+
+
+
+
+        </script>
 @endsection

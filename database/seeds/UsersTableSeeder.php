@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -12,6 +13,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
 
         $firstnames = ['احمد', 'علي', 'خالد', 'سعد', 'عمر'];
         $secondtnames = ['منصور', 'محمد', 'طلال', 'جمعان', 'عبدالله'];
@@ -33,6 +35,7 @@ class UsersTableSeeder extends Seeder
             DB::table('users')->insert([
                 'name' => $name,
                 'email' => Str::random(10) . '@gmail.com',
+                'phone' => $faker->unique()->randomNumber,
                 'password' => Hash::make('password'),
                 'role_id' => $role_id,
                 'email_verified_at' => Carbon::now(),

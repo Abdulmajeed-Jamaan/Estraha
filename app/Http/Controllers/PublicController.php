@@ -22,4 +22,10 @@ class PublicController extends Controller
         $homes = Home::all();
         return view('index')->with('homes', $homes);
     }
+
+    public function show($title)
+    {
+        $home = Home::where('title', $title)->first();
+        return view('show')->with('home', $home);
+    }
 }

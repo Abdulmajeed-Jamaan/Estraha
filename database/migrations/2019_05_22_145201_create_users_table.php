@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles');
 
             $table->string('email')->unique();
+            $table->integer('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -33,7 +34,7 @@ class CreateUsersTable extends Migration
 
         // ---------------- Creating default admin user ------------------
         $admin = [
-            ['name' => 'المدير', 'role_id' => 3, 'email' => 'admin@admin.com', 'password' => Hash::make('admin'), 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'المدير', 'role_id' => 3, 'email' => 'admin@admin.com', 'phone' => '0551245093', 'password' => Hash::make('admin'), 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ];
         // ----------------- Insert Values into Database. ------------------------------
         DB::table('users')->insert($admin);

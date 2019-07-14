@@ -1,0 +1,493 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Tajawal', sans-serif;
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*-----------------------------Header Style --------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+.header {
+	-webkit-box-shadow: 0px -24px 54px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px -24px 54px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px -24px 54px 0px rgba(0, 0, 0, 0.75);
+}
+
+#dropdown_header {
+	display: none;
+	position: absolute;
+	height: 80px;
+	background-color: rgb(241, 241, 241);
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	z-index: 1;
+	margin-right: 170px;
+}
+#dropdown_header a {
+	display: block;
+	margin: 0;
+	padding: 5px 40px;
+	text-align: center;
+}
+
+#dropdown_header a:hover {
+	background-color: #b4b4b4;
+	border-radius: 15px;
+}
+
+.header div {
+	margin: auto;
+	max-width: 1500px;
+	display: flex;
+	flex-direction: row-reverse;
+	height: 70px;
+}
+
+.header nav {
+	height: auto;
+	margin: auto auto auto 0;
+	direction: rtl;
+}
+
+.header .moobile_nav {
+	display: none;
+}
+
+.header nav a {
+	padding: 0px 0px 0px 40px;
+}
+
+.header nav .login {
+	border-right: solid 1px gray;
+	padding-right: 40px;
+}
+
+.header nav a:link,
+.header nav a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.header h1 {
+	margin: auto 0 auto auto;
+	color: #048998;
+}
+
+.header h2 {
+	margin: auto 0 auto 0;
+	color: white;
+	background-color: #048998;
+	border-radius: 0 5px 5px 0;
+	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
+@media only screen and (max-width: 1920px) {
+	.header div {
+		max-width: 80%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.header div {
+		max-width: 100%;
+		display: block;
+		height: auto;
+		padding: 10px 0px 10px 0px;
+	}
+
+	.header .desktop_nav {
+		display: none;
+	}
+
+	.header h1 {
+		text-align: right;
+		display: inline-block;
+		font-size: 40px;
+		width: 65%;
+	}
+
+	.header h2 {
+		text-align: center;
+		display: inline-block;
+		font-size: 50px;
+		width: 28%;
+	}
+
+	.header nav a,
+	.header nav .login {
+		display: block;
+		text-align: center;
+		margin: 30px 0px 0px 0px;
+		padding: 30px 0;
+		border-right: 0;
+		font-size: 25px;
+	}
+
+	.header nav a:hover {
+		background-color: #048998;
+	}
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------Intro part--------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+.intro {
+	height: 400px;
+	background: url(../img/2.jpg) 50% -200px / cover no-repeat fixed;
+	display: flex;
+}
+
+.intro > div {
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.intro > div > h1 {
+	color: white;
+	text-align: center;
+	font-size: 50px;
+	margin: 0;
+}
+
+#top_text {
+	margin-bottom: 60px;
+}
+
+#bottom_text,
+#bottom_text a:link,
+#bottom_text a:visited,
+#bottom_text h1 {
+	display: flex;
+	color: white;
+	height: auto;
+	flex-direction: row-reverse;
+	text-decoration: none;
+	align-items: center;
+}
+
+#bottom_text a {
+	background-color: #048998;
+	padding: 10px 30px;
+	border-radius: 5px;
+	margin: 0 60px;
+	font-size: 30px;
+	text-align: center;
+}
+
+#bottom_text a:hover {
+	background-color: #059bac;
+}
+
+@media only screen and (max-width: 768px) {
+	.intro > div > h1 {
+		font-size: 40px;
+	}
+
+	#bottom_text a {
+		margin: 0 20px;
+		padding: 15px 30px;
+		font-size: 20px;
+		text-align: center;
+	}
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*----------------------------  Homes cards --------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+.content {
+	display: flex;
+	flex-direction: column;
+	max-width: 1450px;
+	align-items: center;
+	margin: auto;
+}
+.content h1 {
+	text-align: center;
+	color: #059bac;
+	margin-top: 30px;
+}
+
+.content > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-flow: wrap;
+	margin-bottom: 100px;
+}
+
+.content > div > article {
+	width: 330px;
+	height: 320px;
+	margin: 15px;
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.content > div > article:hover {
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.80);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.80);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.80);
+}
+
+.content > div > article > img {
+	border-radius: 5px 5px 0 0;
+}
+
+#place {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+#place > h5 {
+	margin: 0 5px 0 0;
+	color: gray;
+}
+
+.content > div > article > h5 {
+	margin: 0 15px 0 15px;
+	text-align: right;
+	height: 50px;
+	font-size: 25px;
+}
+
+.content > div > article > h3 {
+	margin: 10px 15px 0 0;
+	color: #048998;
+	font-weight: bold;
+	font-size: 25px;
+	text-align: right;
+	direction: rtl;
+}
+
+@media only screen and (max-width: 768px) {
+	.content > div > article {
+		width: 80%;
+	}
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------Login / Register Form---------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+.login_form {
+	width: 500px;
+	margin: 100px auto 100px auto;
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.75);
+	border-radius: 15px;
+	padding: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login_form h1 {
+	color: #048998;
+	margin: 0 0 60px 0;
+}
+
+.login_form a,
+.login_form a:link {
+	color: #046298;
+	text-decoration: none;
+	width: 100%;
+	text-align: right;
+}
+
+input {
+	font-family: 'Tajawal', sans-serif;
+}
+.erorr {
+	color: rgba(245, 56, 56, 0.726);
+	width: 100%;
+	text-align: right;
+}
+
+.login_form input[type=email],
+.login_form input[type=password],
+.login_form input[type=text],
+.login_form input[type=number] {
+	border: none;
+	width: 100%;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.493);
+	outline: none;
+	font-size: 25px;
+
+	text-align: right;
+	border-bottom: 2px solid #048998;
+	margin: 0 0 30px 0;
+}
+
+.login_form input[type=email]:focus,
+.login_form input[type=password]:focus .login_form input[type=text]:focus,
+.login_form input[type=number]:focus {
+	background-color: rgba(144, 201, 255, 0.151);
+}
+
+.login_form label {
+	margin-top: 20px;
+	width: 100%;
+	text-align: right;
+
+	font-size: 25px;
+}
+
+.login_form input[type=submit] {
+	width: 100%;
+	margin: 0 0 20px 0;
+	margin: 40px 0 40px 0;
+	background-color: #048998;
+	border: 0;
+	font-size: 30px;
+	padding: 10px;
+	border-radius: 50px;
+	color: white;
+}
+
+.login_form input[type=submit]:hover {
+	background-color: rgb(2, 123, 136);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.login_form .roles {
+	display: flex;
+	flex-direction: row-reverse;
+	border: 2px solid #048998;
+	border-radius: 10px;
+	width: 100%;
+}
+
+.login_form .roles label {
+	display: inline-block;
+	font-size: 22px;
+	text-align: center;
+	margin: 0;
+	padding: 5px;
+	height: 100%;
+	cursor: pointer;
+}
+
+.login_form .roles #label_role_2 {
+	border-right: 2px solid #048998;
+}
+.checked_left {
+	border-radius: 7px 0 0 7px;
+	background-color: #048998;
+	color: white;
+}
+.checked_right {
+	border-radius: 0 7px 7px 0;
+	background-color: #048998;
+	color: white;
+}
+
+.login_form .roles input[type=radio] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.login_form .roles label:hover {
+	background-color: #0489988f;
+	color: white;
+}
+@media only screen and (max-width: 768px) {
+	.login_form {
+		width: 400px;
+	}
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*----------------------------Show home css --------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+.back-btn-fixed {
+	position: fixed;
+	top: 100px;
+	right: 100px;
+	background-color: #d2d2d2;
+	padding: 10px 15px;
+	border-radius: 50%;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
+	cursor: pointer;
+}
+.back-btn-fixed:hover {
+	transition: all 0.3s ease-in-out;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.301);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.301);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.301);
+}
+.back-btn-fixed img {
+	width: 25px;
+	height: 25px;
+	margin-right: -3px;
+}
+
+.show-container {
+	max-width: 1450px;
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+}

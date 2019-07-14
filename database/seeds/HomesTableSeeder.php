@@ -12,12 +12,12 @@ class HomesTableSeeder extends Seeder
      */
     public function run()
     {
-
+        $titles = ['استراحة جديدة', 'استراحة واسعة', 'متوفر مسبح'];
         //--------------- create homes for owner users ----------------
         $faker = Faker::create();
         for ($i = 1; $i <= 15; $i++) {
             DB::table('homes')->insert([
-                'title' => $faker->text($maxNvcchars = 10),
+                'title' => $titles[rand(0, 2)],
                 'no_romes' => rand(1, 7),
                 'no_baths' => rand(1, 7),
                 'no_kitchen' => rand(1, 7),

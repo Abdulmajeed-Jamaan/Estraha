@@ -13,4 +13,24 @@
 
 Auth::routes();
 
+//---------------------------------------------------------
+// -------------------- Public routes ---------------------
 Route::get('/', 'PublicController@index')->name('home');
+Route::get('/show/{title}', 'PublicController@show');
+
+
+Route::resource('home', 'homeController')->middleware('auth');
+
+
+//---------------------------------------------------------
+// -------------------- Admin routes ---------------------
+Route::prefix('admin')->middleware('isAdmin')->group(function () { });
+
+
+//---------------------------------------------------------
+// -------------------- Owner routes ---------------------
+Route::prefix('owner')->middleware('isOwner')->group(function () { });
+
+//---------------------------------------------------------
+// -------------------- Customer routes ---------------------
+Route::prefix('customer')->middleware('isCustomer')->group(function () { });
