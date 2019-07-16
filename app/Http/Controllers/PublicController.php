@@ -19,7 +19,7 @@ class PublicController extends Controller
      */
     public function index()
     {
-        $homes = Home::all();
+        $homes = Home::with('images')->get();
         return view('index')->with('homes', $homes);
     }
 
