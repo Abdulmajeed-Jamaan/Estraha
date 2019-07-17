@@ -15,11 +15,10 @@ Auth::routes();
 
 //---------------------------------------------------------
 // -------------------- Public routes ---------------------
-Route::get('/', 'PublicController@index')->name('home');
-Route::get('/show/{title}', 'PublicController@show');
+Route::get('/', 'PublicController@index');
 
 
-Route::resource('home', 'homeController')->middleware('auth');
+Route::resource('home', 'homeController');
 
 
 //---------------------------------------------------------

@@ -4,7 +4,7 @@
 
 
 <div class="back-btn-fixed">
-    <a href="/">
+<a href="/">
 <img src="{{asset('/img/arrow_right.png')}}" alt="Arrow"></a>
 </div>
 <div class="show-container">
@@ -19,8 +19,8 @@
         </div>
         <div class="owner-info">
             <div class="owner-name">
-               
-            <h5>{{$home->user->name}}</h5> 
+
+            <h5>{{$home->user->name}}</h5>
             <img src="/img/profile.png" alt="profile">
             </div>
         <h5>رقم المسكن : {{$home->id}}</h5>
@@ -63,9 +63,9 @@
 
     <div class="card-container">
         <div class="images-container">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            
+
 
                           @foreach ($home->images as $index => $img)
                           <li data-target="#carouselExampleIndicators" data-slide-to="{{$index}}" @if($index==0)class="active" @endif ></li>
@@ -76,7 +76,7 @@
                                 @foreach ($home->images as $index => $img)
                                 <div class="carousel-item @if($index==0)active @endif" >
                             <img class="d-block w-100" src="{{asset('storage/img/'.$img->file_name)}}" alt="{{$img->file_name}}">
-                        </div>                  
+                        </div>
                         @endforeach
 
                         </div>
@@ -91,7 +91,7 @@
                       </div>
         </div>
         <div class="general-spec">
-            
+
 
         </div>
         <div class="extra-specs">
@@ -108,7 +108,7 @@
 <script>
 
 
-document.addEventListener('DOMContentLoaded', function(){ 
+document.addEventListener('DOMContentLoaded', function(){
     $('.datepicker').val();}, false);
 
 </script>

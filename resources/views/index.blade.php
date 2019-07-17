@@ -35,10 +35,10 @@
             <div>
 
             @foreach ($homes as $home)
-            <article onclick="window.location.href = '/show/{{$home->title}}'">
+            <article onclick="window.location.href = '{{ route('home.show',$home->title) }}'">
             <img src="{{asset('storage/img/'.$home->images->first()->file_name)}}" width="100%" height="55%" alt="{{$home->images->first()->file_name}}">
                      <div id="place">
-                         <img src="/img/marker.svg" width="20px" height="20px" alt="marker image">
+                     <img src="{{asset('img/marker.svg')}}" width="20px" height="20px" alt="marker image">
                          <h5>{{$home->place->city->name}}</h5>
                      </div>
                      <h5> {{$home->title}}</h5>
