@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class IsCustomer
 {
@@ -20,24 +21,16 @@ class IsCustomer
 
         if (Auth::check()) { // ---------- if user logged in ----------
 
-            if (auth()->user()->role_id == 3) { // ------------ if the user Admin ---------
-
-                return redirect('/');
-
-            } else if (auth()->user()->role_id == 2) { // ------------ if the user Owner ---------
-
-                return redirect('/');
-
-            } elseif (auth()->user()->role_id == 1) { // ------------ if the user Customer ---------
+            if (auth()->user()->role_id == 1) { // ------------ if the user Customer ---------
 
                 return $next($request);
+            } else { // ------------ if not Customer ---------
 
+                return redirect('/');
             }
         } else {
 
             return redirect('/login');
-
         }
-
     }
 }

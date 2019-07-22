@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Home;
+use App\City;
+use App\Place;
 
-class homeController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,8 @@ class homeController extends Controller
      */
     public function index()
     {
-        //
+        $homes = Home::with('images')->get();
+        return view('public.index')->with('homes', $homes);
     }
 
     /**
@@ -24,7 +27,13 @@ class homeController extends Controller
      */
     public function create()
     {
-        //
+        $cities = City::All();
+        return view('home.create')->with(['cities' => $cities]);
+    }
+
+    public function get_places($city_id)
+    {
+        return Place::select('name', 'city_id')->where('city_id', $city_id)->get();
     }
 
     /**
@@ -44,10 +53,11 @@ class homeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($id)
     {
-        $home = Home::where('title', $title)->first();
-        return view('show')->with('home', $home);
+
+        $home = Home::find($id)->with('images')->first();
+        return view('public.show')->with('home', $home);
     }
 
     /**

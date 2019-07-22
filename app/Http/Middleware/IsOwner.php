@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class IsOwner
 {
@@ -19,26 +20,16 @@ class IsOwner
         // ------------- middleware for Owners , only Owners can pass this middlware ----------------
 
         if (Auth::check()) { // ---------- if user logged in ----------
-
-            if (auth()->user()->role_id == 3) { // ------------ if the user Admin ---------
-
-                return redirect('/');
-
-            } else if (auth()->user()->role_id == 2) { // ------------ if the user Owner ---------
+            if (auth()->user()->role_id == 2) { // ------------ if the user Owner ---------
 
                 return $next($request);
-
-            } elseif (auth()->user()->role_id == 1) { // ------------ if the user Customer ---------
+            } else { // ------------ if not Owner ---------
 
                 return redirect('/');
-
             }
         } else {
 
             return redirect('/login');
-
         }
-
     }
-
 }

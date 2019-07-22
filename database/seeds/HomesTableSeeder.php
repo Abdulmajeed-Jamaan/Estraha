@@ -18,10 +18,10 @@ class HomesTableSeeder extends Seeder
         for ($i = 1; $i <= 15; $i++) {
             DB::table('homes')->insert([
                 'title' => $titles[rand(0, 2)],
-                'no_romes' => rand(1, 7),
-                'no_baths' => rand(1, 7),
-                'no_kitchen' => rand(1, 7),
-                'area' => rand(1, 20) . ',' . rand(1, 20),
+                'no_romes' => rand(4, 8),
+                'no_baths' => rand(2, 5),
+                'no_kitchen' => rand(1, 2),
+                'area' => rand(10, 20) . ' * ' . rand(10, 20),
                 'location' => '21.307798, 39.894787',
                 'default_price' => rand(150, 600),
                 'ramadan_price' => rand(150, 600),
@@ -48,9 +48,7 @@ class HomesTableSeeder extends Seeder
                 DB::table('extra_home')->insert([
                     ['home_id' => $i, 'extra_id' => 1],
                 ]);
-
             }
         }
-
     }
 }

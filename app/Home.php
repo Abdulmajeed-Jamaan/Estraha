@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Home extends Model
 {
+
+    use SoftDeletes;
     // ------------------- Relation with User ----------------
     public function user()
     {
@@ -35,5 +38,4 @@ class Home extends Model
     {
         return $this->hasMany('App\Image');
     }
-
 }

@@ -43,6 +43,5 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-
     }
 }

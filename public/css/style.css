@@ -499,9 +499,8 @@ input[type=number]::-webkit-outer-spin-button {
 	margin: 30px auto 0 auto;
 	padding: 15px 12px 15px 12px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: row-reverse;
 	justify-content: space-around;
-	height: 500px;
 }
 
 .owner-container {
@@ -632,11 +631,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .card-container {
+	margin: 18px 0 100px 20px;
+}
+
+.images-container {
 	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
 	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
-	margin: 20px 0 30px 20px;
 	padding: 5px;
 }
 
@@ -669,18 +671,624 @@ input[type=number]::-webkit-outer-spin-button {
 	z-index: 2;
 }
 
+.general-spec {
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	padding: 10px;
+	padding-bottom: 10px;
+	margin-top: 50px;
+}
+
+.general-spec .head {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.general-spec .head h1 {
+	margin: 0 0 0 10px;
+	font-size: 16px;
+	color: #3287a7;
+	font-weight: bold;
+}
+
+.general-spec .head .line {
+	margin-top: 0;
+	margin-bottom: -3px;
+}
+
+.general-spec .specs {
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.general-spec .specs .spec {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	margin: 10px 20px;
+}
+
+.general-spec .specs .spec .img-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #3bb4c1;
+	border-radius: 50%;
+	padding: 10px;
+}
+
+.general-spec .specs .spec .img-container img {
+	width: 100%;
+}
+
+.general-spec .specs .spec h3 {
+	font-size: 14px;
+	margin-top: 5px;
+	margin-bottom: 0;
+	text-align: center;
+}
+.general-spec .specs .spec h6 {
+	font-size: 14px;
+	margin: 0;
+}
+
+.extra-spec {
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	padding: 10px;
+	padding-bottom: 10px;
+	margin-top: 50px;
+}
+
+.extra-spec .head {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.extra-spec .head h1 {
+	margin: 0 0 0 10px;
+	font-size: 16px;
+	color: #3287a7;
+	font-weight: bold;
+}
+
+.extra-spec .head .line {
+	margin-top: 0;
+	margin-bottom: -3px;
+}
+
+.extra-spec .specs {
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.extra-spec .specs .spec {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	margin: 10px 20px;
+}
+
+.extra-spec .specs .spec .img-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+}
+
+.extra-spec .specs .spec .img-container img {
+	width: 100%;
+}
+
+.extra-spec .specs .spec h3 {
+	font-size: 14px;
+	margin-top: 5px;
+	margin-bottom: 0;
+	text-align: center;
+}
+.extra-spec .specs .spec h6 {
+	font-size: 14px;
+	margin: 0;
+}
+
+.location-spec {
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	padding: 10px;
+	padding-bottom: 10px;
+	margin-top: 50px;
+}
+
+.location-spec .head {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.location-spec .head h1 {
+	margin: 0 0 0 10px;
+	font-size: 16px;
+	color: #3287a7;
+	font-weight: bold;
+}
+
+.location-spec .head .line {
+	margin-top: 0;
+	margin-bottom: -3px;
+}
+
 @media only screen and (max-width: 1920px) {
 	.show-container {
 		max-width: 1140px;
 	}
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1100px) {
 	.show-container {
 		max-width: 90%;
+		flex-flow: wrap;
 	}
-
+	.card-container {
+		margin-bottom: 0;
+	}
+	.owner-container {
+		margin-top: 30px;
+		margin-bottom: 80px;
+	}
+	.carousel-item img {
+		height: 600px;
+	}
 	.back-btn-fixed {
 		display: none;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.show-container {
+		max-width: 98%;
+		flex-flow: wrap;
+	}
+	.card-container {
+		margin-bottom: 0;
+		margin-left: 0;
+	}
+	.owner-container {
+		margin-top: 30px;
+		margin-bottom: 80px;
+	}
+	.carousel-item img {
+		height: 300px;
+	}
+	.back-btn-fixed {
+		display: none;
+	}
+}
+
+.myhomes-container {
+	max-width: 1150px;
+	margin: auto;
+}
+
+.myhomes-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.myhomes-card .title {
+	width: 100%;
+	display: flex;
+	flex-flow: wrap;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: center;
+	margin: 30px 0;
+}
+.myhomes-card .title > div {
+	flex: 1;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+.myhomes-card .title h1 {
+	font-size: 25px;
+	font-weight: bold;
+	margin: 0;
+	text-align: center;
+	flex-grow: 2;
+}
+.myhomes-card .title .btn-addhome {
+	background-color: #048998;
+	border-radius: 7px;
+	padding: 10px 10px;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.6);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.6);
+	width: fit-content;
+	min-width: fit-content;
+	cursor: pointer;
+}
+
+.myhomes-card .title .btn-addhome h4 {
+	margin: 0 0 0 10px;
+	font-size: 20px;
+	white-space: nowrap;
+}
+
+.myhomes-card .title .btn-addhome i {
+	font-size: 20px;
+}
+
+.myhomes-card .title .btn-addhome:hover {
+	background-color: #00a2b4;
+}
+
+.myhomes-card .table-head {
+	width: 100%;
+	display: flex;
+	flex-flow: wrap;
+	flex-direction: row-reverse;
+	align-items: center;
+	margin: 15px 0;
+	padding: 7px 0;
+	border-radius: 3px;
+
+	background-color: #f6f6f6;
+
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+}
+
+.myhomes-card .table-head h3 {
+	flex-grow: 1;
+	text-align: center;
+	margin: 0;
+	font-size: 14px;
+	font-weight: normal;
+	border-left: 1px solid rgb(128, 128, 128);
+	white-space: nowrap;
+}
+.myhomes-card .table-head h3:last-child {
+	border-left: none;
+}
+
+.myhomes-card .table-row {
+	width: 100%;
+	display: flex;
+	flex-flow: wrap;
+	flex-direction: row-reverse;
+	align-items: center;
+	margin: 10px 0;
+	padding: 10px 0;
+	border-radius: 3px;
+
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+.myhomes-card .table-row h4:first-child {
+	cursor: pointer;
+}
+.myhomes-card .table-row h4:first-child:hover {
+	background-color: #cccccc;
+}
+.myhomes-card .table-row h4,
+.myhomes-card .table-row > div {
+	flex-grow: 1;
+	text-align: center;
+	margin: 0 5px;
+	font-size: 14px;
+	font-weight: normal;
+	white-space: nowrap;
+	direction: rtl;
+}
+
+.myhomes-card .table-row .options button {
+	color: white;
+	padding: 5px 10px;
+	border: none;
+	cursor: pointer;
+	border-radius: 3px;
+
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.6);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.6);
+
+	transition: 0.25s ease-in-out;
+
+	outline: none;
+}
+
+.myhomes-card .table-row .options button:hover {
+	transform: translateY(-5px);
+}
+
+.myhomes-card .table-row .options .edit {
+	background-color: #5d5d5d;
+	margin-left: 5px;
+}
+
+.myhomes-card .table-row .options .delete {
+	background-color: #ac4747;
+}
+
+@media only screen and (max-width: 1920px) {
+	.myhomes-container {
+		max-width: 840px;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.myhomes-container {
+		max-width: 90%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.myhomes-container {
+		max-width: 95%;
+	}
+
+	.myhomes-card .title > div:first-child {
+		display: none;
+	}
+
+	.myhomes-card .title > div {
+		margin: 30px 0;
+		justify-content: center;
+	}
+
+	.myhomes-card .table-row h4,
+	.myhomes-card .table-row > div {
+		margin: 10px 0;
+	}
+
+	.myhomes-card .table-head {
+		display: none;
+	}
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------- Create home css ------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+.create-container {
+	max-width: 1150px;
+	margin: auto;
+}
+
+.create-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
+	padding: 10px 0;
+}
+
+.create-card h1 {
+	width: 100%;
+	white-space: nowrap;
+	text-align: center;
+	font-size: 20px;
+	font-weight: normal;
+	color: rgb(104, 104, 104);
+	border-bottom: 2px solid gray;
+	padding-bottom: 10px;
+}
+.create-card div {
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.create-card .title {
+	margin: 15px 0 0 0;
+	flex-direction: column;
+}
+.create-card .title label {
+	font-weight: normal;
+	width: 100%;
+	text-align: right;
+	font-size: 16px;
+}
+
+.create-card .title input {
+	width: 100%;
+	border: 1px solid #70707071;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 18px;
+	padding: 5px;
+	text-align: right;
+}
+
+.create-card .w-2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.create-card .w-2:first-child {
+	margin-right: 30px;
+}
+.create-card .w-2 label {
+	font-weight: normal;
+	width: 100%;
+	text-align: right;
+	font-size: 16px;
+}
+
+.create-card .w-2 .field {
+	width: 100%;
+	border: 1px solid #70707071;
+	border-radius: 5px;
+	background-color: rgba(242, 242, 242, 0.13);
+	font-size: 18px;
+}
+
+.create-card .w-2 .field select {
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	padding: 5px;
+}
+.create-card .w-2 .field i {
+	color: rgba(128, 128, 128, 0.815);
+	margin: 5px 10px;
+}
+
+.create-card .w-3 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 30px;
+}
+.create-card .w-3:first-child {
+	margin-left: 0px;
+}
+
+.create-card .w-3 label {
+	font-weight: normal;
+	width: 100%;
+	text-align: right;
+	font-size: 16px;
+}
+
+.create-card .w-3 .field {
+	width: 100%;
+	border: 1px solid #70707071;
+	border-radius: 5px;
+	background-color: rgba(242, 242, 242, 0.13);
+	font-size: 18px;
+}
+
+.create-card .w-3 .field input {
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	padding: 5px;
+	text-align: center;
+}
+.create-card .w-3 .field img {
+	color: rgba(128, 128, 128, 0.815);
+	margin: 5px;
+	width: 20px;
+}
+
+.create-card .area-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.create-card .area-container label {
+	font-weight: normal;
+	width: 100%;
+	text-align: right;
+	font-size: 16px;
+}
+
+.create-card .area-container .area {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	border: 1px solid #70707071;
+	border-radius: 5px;
+	background-color: rgba(242, 242, 242, 0.13);
+}
+
+.create-card .area-container input {
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	padding: 5px;
+	text-align: center;
+}
+
+.create-card .area-container input:first-child {
+	border-right: 1px solid #70707071;
+	border-radius: 5px 0 0 5px;
+}
+
+@media only screen and (max-width: 1920px) {
+	.create-container {
+		max-width: 840px;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.create-container {
+		max-width: 90%;
+	}
+	.create-card div {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.create-container {
+		max-width: 95%;
+	}
+	.create-card div {
+		width: 95%;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.create-card > div {
+		flex-flow: wrap;
+	}
+
+	.create-card .w-3 {
+		margin-left: 0;
+	}
+
+	.create-card .w-2:first-child {
+		margin-right: 0;
 	}
 }

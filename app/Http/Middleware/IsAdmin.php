@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
 {
@@ -23,21 +24,13 @@ class IsAdmin
             if (auth()->user()->role_id == 3) { // ------------ if the user Admin ---------
 
                 return $next($request);
-
-            } else if (auth()->user()->role_id == 2) { // ------------ if the user Owner ---------
-
-                return redirect('/');
-
-            } elseif (auth()->user()->role_id == 1) { // ------------ if the user Customer ---------
+            } else { // ------------ if not admin ---------
 
                 return redirect('/');
-
             }
         } else {
 
             return redirect('/login');
-
         }
-
     }
 }

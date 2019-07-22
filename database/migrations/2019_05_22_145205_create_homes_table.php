@@ -24,6 +24,7 @@ class CreateHomesTable extends Migration
             $table->integer('default_price');
             $table->integer('ramadan_price');
             $table->integer('hajj_price');
+            $table->softDeletes();
 
             // ------------------user (FK)----------------
 
