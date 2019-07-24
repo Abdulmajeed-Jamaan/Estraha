@@ -32,12 +32,10 @@ lets write them by the type of target user of this website
 # Planning before program
 
 <p align="center">
-<img  src="github-images/UML.jpg"></p>
+<img  src="github-images/UML.jpg">
 
-<p align="center">
-<img  src="github-images/DB.jpg"></p>
+<img  src="github-images/DB.jpg">
 
-<p align="center">
 <img  src="github-images/Routes.jpg"></p>
 
 ## Site Design
