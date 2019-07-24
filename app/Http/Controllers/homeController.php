@@ -154,11 +154,13 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        if (auth()->user()->id != $id) {
+        $home = Home::find($id);
+
+        if (auth()->user()->id != $home->user_id) {
             return redirect(route('home-index'));
         }
 
-        Home::find($id)->delete();
+        $home->delete();
         Session::flash('success-removed', 'تم حذف المسكن بنجاح');
 
         return redirect(route('owner-myhomes'));
