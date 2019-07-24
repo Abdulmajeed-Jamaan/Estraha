@@ -32,9 +32,14 @@ lets write them by the type of target user of this website
 # Planning before program
 
 <p align="center">
+    <br>
 <img  src="github-images/UML.jpg">
+    <br>
+    <br>
 
 <img  src="github-images/DB.jpg">
+    <br>
+    <br>
 
 <img  src="github-images/Routes.jpg"></p>
 
