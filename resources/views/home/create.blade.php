@@ -215,7 +215,7 @@
 
         $('.item').click(function (){
             
-            $(this).find('.img-container').toggleClass("color-blue");
+            $(this).find('.img-container').addClass("color-blue");
         });
 
 
