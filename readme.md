@@ -30,15 +30,13 @@ lets write them by the type of target user of this website
 
 
 # Planning before program
-## UML diagram
+
 <p align="center">
 <img  src="github-images/UML.jpg"></p>
 
-## Database structure
 <p align="center">
 <img  src="github-images/DB.jpg"></p>
 
-## Route structure
 <p align="center">
 <img  src="github-images/Routes.jpg"></p>
 
