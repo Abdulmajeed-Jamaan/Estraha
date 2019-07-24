@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
                 'name' => $name,
                 'email' => 'user' . $i . '@gmail.com',
                 'phone' => $faker->unique()->randomNumber,
-                'password' => Hash::make('password'),
+                'password' => Hash::make('user'),
                 'role_id' => $role_id,
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
