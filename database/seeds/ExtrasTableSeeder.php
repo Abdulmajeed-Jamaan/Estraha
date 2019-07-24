@@ -15,12 +15,11 @@ class ExtrasTableSeeder extends Seeder
 
         //----------------- adding some extras ------------------
         $extras = [
-            ['name' => 'مسبح', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['name' => 'شاشات', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['name' => 'بيت شعر', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'مسبح', 'image_name' => 'pool.svg', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'شاشات', 'image_name' => 'tv.svg', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'بيت شعر', 'image_name' => 'home.svg', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ];
 
         DB::table('extras')->insert($extras);
-
     }
 }

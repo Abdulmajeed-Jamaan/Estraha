@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Home extends Model
 {
 
+    protected $fillable  = [
+        'title', 'no_romes', 'no_baths', 'no_kitchen', 'area', 'default_price', 'ramadan_price', 'hajj_price', 'user_id', 'place_id'
+    ];
+
     use SoftDeletes;
     // ------------------- Relation with User ----------------
     public function user()

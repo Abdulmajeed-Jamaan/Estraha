@@ -20,7 +20,7 @@ class CreateHomesTable extends Migration
             $table->integer('no_baths');
             $table->integer('no_kitchen');
             $table->string('area');
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->integer('default_price');
             $table->integer('ramadan_price');
             $table->integer('hajj_price');
@@ -29,7 +29,7 @@ class CreateHomesTable extends Migration
             // ------------------user (FK)----------------
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             // ------------------place (FK)----------------
 

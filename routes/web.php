@@ -18,6 +18,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home-index');
 Route::get('home/show/{id}', 'HomeController@show')->name('home-show');
 
+
+
 Route::middleware('auth')->group(function () {
 
     Route::get('home/create', 'HomeController@create')->name('home-create');
@@ -26,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('home/{id}/edit', 'HomeController@edit')->name('home-edit');
     Route::put('home/{id}', 'HomeController@update')->name('home-update');
 
-    Route::delete('home/{id}', 'HomeController@delete')->name('home-delete');
+    Route::delete('home/{id}/destroy', 'HomeController@destroy')->name('home-destroy');
 
 
     Route::get('city/{city_id}/places', 'HomeController@get_places');

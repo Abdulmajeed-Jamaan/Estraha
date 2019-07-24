@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
 
             DB::table('users')->insert([
                 'name' => $name,
-                'email' => Str::random(10) . '@gmail.com',
+                'email' => 'user' . $i . '@gmail.com',
                 'phone' => $faker->unique()->randomNumber,
                 'password' => Hash::make('password'),
                 'role_id' => $role_id,

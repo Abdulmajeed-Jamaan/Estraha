@@ -16,6 +16,7 @@ class CreateExtrasTable extends Migration
         Schema::create('extras', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('image_name');
             $table->timestamps();
         });
     }

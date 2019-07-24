@@ -14,7 +14,17 @@
                 </div>
             </div>
         </div>
+        @if(Session::has('success-added'))
+        <div class="alert alert-success w-100 text-right" role="alert">
+            {{Session::get('success-added')}}
+        </div>
+        @endif
 
+        @if(Session::has('success-removed'))
+        <div class="alert alert-danger w-100 text-right" role="alert">
+            {{Session::get('success-removed')}}
+        </div>
+        @endif
         <div class="table-head">
             <h3>العنوان</h3>
             <h3>المدينة</h3>
@@ -33,8 +43,12 @@
 
                 <button class="edit" onclick="window.location.href = '{{ route('home-edit',$home->id) }}'">
                     <i class="fas fa-pencil-alt"></i> </button>
-                <button class="delete" onclick="deleteHome()">
-                    <i class="fas fa-trash-alt"></i> </button>
+                <form action="{{ route('home-destroy',$home->id) }}" method="POST" style="display: inline-block;">
+                    @method('delete')
+                    @csrf
+                    <button class="delete" onclick="return confirm('هل انت متأكد من حذف هذا المنزل ؟');">
+                        <i class="fas fa-trash-alt"></i> </button>
+                </form>
             </div>
         </div>
         @endforeach
@@ -43,13 +57,7 @@
 </div>
 
 <script>
-    function deleteHome() {
 
-    if(confirm('هل انت متأكد من حذف هذا المنزل ؟')){
-       window.location.href = '{{ route('home-delete',$home->id) }}'; 
-    }
-    
-}
 
 
 
