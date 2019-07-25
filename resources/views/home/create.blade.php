@@ -67,31 +67,35 @@
                             <img src="{{asset('img/pool.svg')}}" alt="pool">
                         </div>
                         <h5>مسبح</h5>
-                        <input type="checkbox" name="extra_pool" value="1" id="extra-pool">
 
                     </label>
+                    <input type="checkbox" name="extra_pool" value="1" id="extra-pool">
+
 
                     <label for="extra-home" class="item">
                         <div class="img-container">
                             <img src="{{asset('img/home.svg')}}" alt="home">
                         </div>
                         <h5>بيت شعر</h5>
-                        <input type="checkbox" name="extra_home" value="3" id="extra-home">
                     </label>
+                    <input type="checkbox" name="extra_home" value="3" id="extra-home">
+
 
                     <label for="extra-tv" class="item">
                         <div class="img-container">
                             <img src="{{asset('img/tv.svg')}}" alt="tv">
                         </div>
                         <h5>شاشات</h5>
-                        <input type="checkbox" name="extra_tv" value="2" id="extra-tv">
                     </label>
+                    <input type="checkbox" name="extra_tv" value="2" id="extra-tv">
+
                 </div>
             </div>
             <div class="uploadimages-container">
                 <div class="title">
                     <h3>الصور</h3>
-                    <label for="images"><i class="far fa-images" style="color: white; margin-right:5px; "></i>اختر
+                    <label for="images" id="btn-chooseImage"><i class="far fa-images"
+                            style="color: white; margin-right:5px; "></i>اختر
                         صور</label>
                 </div>
                 <input type="file" class="hidden" id="images" onchange="showImage(this)" multiple name="image[]"
@@ -150,6 +154,8 @@
 
 <script>
     function showImage(input) {
+        $('#btn-chooseImage').html(`<i class="far fa-images"
+                            style="color: white; margin-right:5px; "></i>اعادة اختيار الصور`);
     if (input.files) {
 
         $('#images-container').html('');
@@ -215,7 +221,8 @@
 
         $('.item').click(function (){
             
-            $(this).find('.img-container').addClass("color-blue");
+            console.log($(this));
+            $(this).find('.img-container').toggleClass("color-blue");
         });
 
 

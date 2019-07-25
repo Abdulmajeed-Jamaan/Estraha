@@ -1284,6 +1284,11 @@ input[type=number]::-webkit-outer-spin-button {
 	display: none;
 }
 
+.create-card .extra-container .extra .item {
+	cursor: pointer;
+	border: 5px;
+}
+
 .create-card .extra-container .extra > label {
 	display: flex;
 	flex-direction: column;
