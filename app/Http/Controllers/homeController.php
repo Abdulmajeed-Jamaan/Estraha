@@ -9,6 +9,7 @@ use App\Place;
 use App\Image;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Extra;
 
 class HomeController extends Controller
 {
@@ -31,7 +32,8 @@ class HomeController extends Controller
     public function create()
     {
         $cities = City::All();
-        return view('home.create')->with(['cities' => $cities]);
+        $extras = Extra::All();
+        return view('home.create')->with(['cities' => $cities, 'extras' => $extras]);
     }
 
     public function get_places($city_id)
@@ -48,66 +50,57 @@ class HomeController extends Controller
     public function store(Request $request)
     {
 
-
-        $request->validate([
-            'title'         => 'required|min:5|max:50',
-            'no_romes'      => 'required|numeric|min:1|max:20',
-            'no_baths'      => 'required|numeric|min:1|max:20',
-            'no_kitchen'    => 'required|numeric|min:1|max:5',
-            'place_id'      => 'required|numeric|exists:places,id',
-            'area_width'    => 'required|numeric|min:1',
-            'area_height'   => 'required|numeric|min:1',
-            'area'          => 'required',
-            'extra_pool'    => 'numeric|exists:extras,id',
-            'extra_tv'      => 'numeric|exists:extras,id',
-            'extra_home'    => 'numeric|exists:extras,id',
-            'image'         => 'required|array|min:3',
-            'image.*'       => 'file|image',
-            'default_price' => 'required|numeric|min:1',
-            'ramadan_price' => 'required|numeric|min:1',
-            'hajj_price'    => 'required|numeric|min:1',
-
-
-        ]);
+        if ($request->ajax()) {
+            $request->validate([
+                'title'         => 'required|min:5|max:50',
+                'no_romes'      => 'required|numeric|min:1|max:20',
+                'no_baths'      => 'required|numeric|min:1|max:20',
+                'no_kitchen'    => 'required|numeric|min:1|max:5',
+                'place_id'      => 'required|numeric|exists:places,id',
+                'area_width'    => 'required|numeric|min:1',
+                'area_height'   => 'required|numeric|min:1',
+                'area'          => 'required',
+                'extra_pool'    => 'numeric|exists:extras,id',
+                'extra_tv'      => 'numeric|exists:extras,id',
+                'extra_home'    => 'numeric|exists:extras,id',
+                'images'         => 'required|array|min:3',
+                'images.*'       => 'required|image|max:2048',
+                'default_price' => 'required|numeric|min:1',
+                'ramadan_price' => 'required|numeric|min:1',
+                'hajj_price'    => 'required|numeric|min:1',
 
 
-        DB::transaction(function () use ($request) {
+            ]);
 
 
-            $home = new Home($request->all());
-            $home->user_id = auth()->user()->id;
-            $home->save();
-
-            if ($request->extra_tv) {
-                $home->extras()->attach($request->extra_tv);
-            }
-
-            if ($request->extra_pool) {
-                $home->extras()->attach($request->extra_pool);
-            }
-
-            if ($request->extra_home) {
-                $home->extras()->attach($request->extra_home);
-            }
-
-            $home->save();
-
-            $images = $request->file('image');
-            foreach ($images as $img) {
-                $image_path = $img->store('public/img');
-
-                $file_name = explode('/', $image_path)[2];
-
-                $image = new Image();
-                $image->file_name = $file_name;
-                $image->home_id = $home->id;
-                $image->save();
-            }
-        });
-        $request->session()->flash('success-added', 'تم اضافة المسكن بنجاح');
+            DB::transaction(function () use ($request) {
 
 
-        return 1;
+                $home = new Home($request->all());
+                $home->user_id = auth()->user()->id;
+                $home->save();
+
+                $home->extras()->sync(array_keys($request->extra));
+
+                $home->save();
+
+                $images = $request->file('images');
+                foreach ($images as $img) {
+                    $image_path = $img->store('public/img');
+
+                    $file_name = explode('/', $image_path)[2];
+
+                    $image = new Image();
+                    $image->file_name = $file_name;
+                    $image->home_id = $home->id;
+                    $image->save();
+                }
+            });
+            $request->session()->flash('success-added', 'تم اضافة المسكن بنجاح');
+
+
+            return 1;
+        }
     }
 
     /**

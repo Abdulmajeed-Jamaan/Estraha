@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('home/{id}/edit', 'HomeController@edit')->name('home-edit');
     Route::put('home/{id}', 'HomeController@update')->name('home-update');
 
-    Route::delete('home/{id}/destroy', 'HomeController@destroy')->name('home-destroy');
+    Route::delete('home/{id}', 'HomeController@destroy')->name('home-destroy');
 
 
     Route::get('city/{city_id}/places', 'HomeController@get_places');

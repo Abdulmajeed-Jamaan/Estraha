@@ -62,33 +62,16 @@
             <div class="extra-container">
                 <label>خدمات اضافية</label>
                 <div class="extra">
-                    <label for="extra-pool" class="item">
+                    @foreach ($extras as $extra)
+                    <label for="extra_{{$extra->id}}" class="item">
                         <div class="img-container ">
-                            <img src="{{asset('img/pool.svg')}}" alt="pool">
+                            <img src="{{asset('img/'.$extra->image_name)}}" alt="extraImage">
                         </div>
-                        <h5>مسبح</h5>
+                        <h5>{{$extra->name}}</h5>
 
                     </label>
-                    <input type="checkbox" name="extra_pool" value="1" id="extra-pool">
-
-
-                    <label for="extra-home" class="item">
-                        <div class="img-container">
-                            <img src="{{asset('img/home.svg')}}" alt="home">
-                        </div>
-                        <h5>بيت شعر</h5>
-                    </label>
-                    <input type="checkbox" name="extra_home" value="3" id="extra-home">
-
-
-                    <label for="extra-tv" class="item">
-                        <div class="img-container">
-                            <img src="{{asset('img/tv.svg')}}" alt="tv">
-                        </div>
-                        <h5>شاشات</h5>
-                    </label>
-                    <input type="checkbox" name="extra_tv" value="2" id="extra-tv">
-
+                    <input type="checkbox" name="extra[{{$extra->id}}]" id="extra_{{$extra->id}}">
+                    @endforeach
                 </div>
             </div>
             <div class="uploadimages-container">
@@ -98,7 +81,7 @@
                             style="color: white; margin-right:5px; "></i>اختر
                         صور</label>
                 </div>
-                <input type="file" class="hidden" id="images" onchange="showImage(this)" multiple name="image[]"
+                <input type="file" class="hidden" id="images" onchange="showImage(this)" multiple name=""
                     accept="image/*">
                 <div id="images-container">
 
@@ -153,21 +136,25 @@
 
 
 <script>
+    var images = [];
     function showImage(input) {
-        $('#btn-chooseImage').html(`<i class="far fa-images"
-                            style="color: white; margin-right:5px; "></i>اعادة اختيار الصور`);
+       
     if (input.files) {
 
-        $('#images-container').html('');
             for (let index = 0; index < input.files.length; index++) 
             {
                 var reader = new FileReader();
 
                 const element = input.files[index];
+                images.push(element);
+
+
                 reader.onload = function (e) {
                     $('#images-container').append(
                         `<div class="d-flex flex-column m-2" style="width: fit-content;">
-                            <img class="rounded border" src="`+e.target.result+`" alt="img" width="100" height="100">
+                            <img class="" src="`+e.target.result+`" alt="img" width="100" height="100" style="border-radius: 5px 5px 0 0;">
+                            <span class=" w-100 btn-danger text-lg text-center font-weight-bold rounded-bottom" style="curser:pointer;" 
+                            onclick="removeElement(this)">×</span>
 
                         </div>`);
                     };
@@ -186,6 +173,17 @@
         $('#area').val(height+'*'+width);
         
     }
+
+    function removeElement(input) {
+        
+        
+        var index = $(input).parent().index();
+        images.splice(index,1);
+        
+        input.parentNode.parentNode.removeChild(input.parentNode);
+        
+        return false;
+        }
 
 
         function getPlaces() {
@@ -240,6 +238,11 @@
                // where the keys are the form inputs names
                // and the values are the form inputs values
                var formInputsArray = new FormData(this);
+               for (let index = 0; index < images.length; index++) {
+
+                    formInputsArray.append('images['+index+']',images[index]);
+
+               }
                $.ajaxSetup({
                    headers: {
                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -255,6 +258,7 @@
                    data: formInputsArray,
                    dataType:'json',
                    success: function (response) {
+                       console.log(response);
                        window.location.href = '{{route('owner-myhomes')}}';
                     
                    }, error: function (xhr, ajaxOptions, error) {
